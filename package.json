@@ -1,6 +1,7 @@
 {
-  "name": "client",
+  "name": "devchallenges-solution-collection",
   "version": "0.1.0",
+  "author": "Richard Jason <s.chardjason@gmail.com>",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
