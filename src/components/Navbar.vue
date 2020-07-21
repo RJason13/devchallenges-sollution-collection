@@ -1,21 +1,17 @@
 <template>
-  <div class="home">
-      <span>Home Page</span>
+  <div class="navbar">
+      RJ | Dev Challenges Solutions
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-const Home = Vue.extend({
+
+export default Vue.extend({
     props: {
-        variety: {
-            type: String
-        },
 
     }
 });
-
-export default Home;
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
