@@ -9,7 +9,7 @@ npm run generate:$1
 # navigate into the build output directory
 cd dist
 
-if [$1 == "gh-pages"] 
+if [$1 = "gh-pages"]; then
     # if you are deploying to a custom domain
     # echo 'www.example.com' > CNAME
 
