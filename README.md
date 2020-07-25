@@ -5,6 +5,8 @@ The demo page can be found [here](https://rjason13.github.io/devchallenges-solut
 
 ## Framework
 
-The solutions are built within Vue.js framework.
+The solutions are built within Nuxt.js framework.
 
 ## Buttons
+
+[Buttons Challenge Solution](https://rjason13.github.io/devchallenges-solution-collection/buttons/)
