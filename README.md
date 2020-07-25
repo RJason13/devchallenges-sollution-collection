@@ -1,20 +1,9 @@
 # devchallenges-solution-collection
 
-## Build Setup
+This repository contains my solutions for my challeges in devchallenges.io.
+The demo page can be found [here](https://rjason13.github.io/devchallenges-solution-collection/)
 
-```bash
-# install dependencies
-$ yarn install
+## Framework
 
-# serve with hot reload at localhost:3000
-$ yarn dev
+The solutions are built within Vue.js framework.
 
-# build for production and launch server
-$ yarn build
-$ yarn start
-
-# generate static project
-$ yarn generate
-```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
