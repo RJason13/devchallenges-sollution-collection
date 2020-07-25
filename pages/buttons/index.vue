@@ -6,7 +6,8 @@
               <div class="button-group">
                 <div class="button-wrapper" v-for="(button, j) in group" :key="j">
                     <span style="font-size: 14px;margin-bottom: 10px;margin-top: 20px;">{{ button.desc }}</span>
-                    <Button v-bind="button.props" />
+                    <Button v-if="button.onClick" v-bind="button.props" @click="button.onClick" />
+                    <Button v-else v-bind="button.props" />
                 </div>
               </div>
           </li>
@@ -22,7 +23,7 @@ export default Vue.extend({
         return {
             groups: [
                 [
-                    { desc: '<Button />', props: { text: "Default" } },
+                    { desc: '<Button />', props: { text: "Default" }, onClick: () => { console.log("test") } },
                     { desc: '<Button variant="outlined" />', props: { text: "Outlined", variant: "outlined" } },
                     { desc: '<Button variant="text" />', props: { text: "Text", variant: "text" } },
                 ],

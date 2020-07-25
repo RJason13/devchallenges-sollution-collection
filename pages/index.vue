@@ -1,50 +1,16 @@
 <template>
-  <div id="app">
-    <header>
-      <navbar />
-    </header>
-    <aside>
-      <drawer />
-    </aside>
-    <main>
-      <nuxt-child />
-      <footer>Copyright© 2020 by Richard Jason</footer>
-    </main>
-  </div>
+      <Nuxt />
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import Navbar from "../components/Navbar.vue";
-import Drawer from "../components/Drawer.vue";
 
 export default Vue.extend({
-  components: {
-    Navbar,
-    Drawer
-  }
 })
 </script>
 
 <style>
 :root {
-  /* pallete */
-  --primary-color: slategrey;
-  --primary-focus-color: rgb(81, 92, 104);
-  --primary-focus-opacity-color: rgba(81, 92, 104, 0.1);
-  --primary-text-contrast: white;
-  --primary-light-color: lightslategrey;
-  --primary-light-text-contrast: black;
-  --primary-dark-color: darkslategrey;
-  --primary-dark-text-contrast: white;
-  --secondary-color: lightskyblue;
-  --secondary-focus-color: rgb(107, 161, 196);
-  --secondary-focus-opacity-color: rgba(107, 161, 196, 0.1);
-  --secondary-text-contrast: black;
-  --danger-color: #D32F2F;
-  --danger-focus-color: #9A0007;
-  --danger-focus-opacity-color: rgba(154, 0, 7, 0.1);
-  --danger-text-contrast: white;
   /* layout */
   --navbar-height: 64px;
   --navbar-z-index: 1200;

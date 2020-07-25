@@ -3,9 +3,9 @@
         <div id="nav">
             <ul>
                 <li v-for="link in links" :key="link.id" class="nav-link">
-                    <nuxt-link :to="link.uri" :title="link.title">
+                    <NuxtLink :to="link.uri" :title="link.title">
                         <i class="material-icons md-18">{{ link.icon }}</i>
-                    </nuxt-link>
+                    </NuxtLink>
                 </li>
             </ul>
         </div>

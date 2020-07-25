@@ -1,6 +1,29 @@
 <template>
-  <Nuxt />
+  <div id="app">
+    <header>
+      <navbar />
+    </header>
+    <aside>
+      <drawer />
+    </aside>
+    <main>
+      <Nuxt />
+      <footer>Copyright© 2020 by Richard Jason</footer>
+    </main>
+  </div>
 </template>
+
+<script lang="ts">
+import Vue from 'vue';
+import Navbar from "../components/Navbar.vue";
+import Drawer from "../components/Drawer.vue";
+export default Vue.extend({
+  components: {
+    Navbar,
+    Drawer
+  }
+})
+</script>
 
 <style>
 html {
