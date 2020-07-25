@@ -1,5 +1,5 @@
 <template>
-    <div class="drawer">
+    <div class="drawer" :style="styles">
         <div id="nav">
             <ul>
                 <li v-for="link in links" :key="link.id" class="nav-link">
@@ -14,17 +14,49 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import { Instance, Constructor as TinyColor } from "tinycolor2";
 const Drawer = Vue.extend({
     props: {
-
+      shade: {
+        type: String,
+        default: "dark",
+        validator: (value) => ['dark', 'mid', 'light'].includes(value)
+      },
+      color: {
+        type: String,
+        default: "primary",
+        validator: (value) => ['default', 'primary', 'secondary', "danger"].includes(value)
+      }
     },
-    data: function() {
+    data() {
         return {
             links: [
                 { id: "home", title: "Home", icon: "home", uri: "/" },
                 { id: "buttons", title: "Buttons", icon: "smart_button", uri: "/buttons" }
             ]
         }
+    },
+    computed: {
+      styles() : {[key: string]: string | Instance} {
+        let { color, shade } = this;
+        let { palette, tinycolor } = this.$theme;
+        let mode = "dark";
+        let colorBase = this.$theme.getBaseColor(color, mode);
+        let bgColor: Instance = tinycolor(colorBase);
+        
+        switch(shade) {
+          case "dark":
+            bgColor.darken();
+            break;
+          case "light":
+            bgColor.lighten();
+            break;
+        }
+        return {
+            backgroundColor: bgColor,
+            color: (<TinyColor>tinycolor).mostReadable(bgColor, ["white", "black"])
+        }
+      }
     }
 });
 
@@ -33,6 +65,10 @@ export default Drawer;
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.drawer {
+    height: 100%;
+}
+
 .nav-link {
     height: var(--drawer-width);
 }

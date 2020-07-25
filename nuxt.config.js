@@ -37,7 +37,7 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
-    '~/plugins/theme.ts'
+    '~/plugins/theme'
   ],
   /*
   ** Auto import components
@@ -58,7 +58,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt/content
-    '@nuxt/content',
+    '@nuxt/content'
   ],
   /*
   ** Axios module configuration
@@ -78,5 +78,12 @@ export default {
   },
   router: {
     base: routerBase
+  },
+  typescript: {
+    typeCheck: {
+      eslint: {
+        files: './src/**/*.{ts,js,vue}'
+      }
+    }
   }
 }

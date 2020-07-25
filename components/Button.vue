@@ -52,7 +52,7 @@ export default Vue.extend({
         }
     },
 
-    data: function() {
+    data() {
         return {
             $_hovered: false,
             $_focused: false,
@@ -62,7 +62,7 @@ export default Vue.extend({
     },
 
     computed: {
-        classes: function() {
+        classes(): Array<string | object> {
             let { variant, color, size, disableShadow} = this;
             return [
                 variant !== "default" ? variant : "", 
@@ -71,29 +71,31 @@ export default Vue.extend({
                 { disableShadow }
             ];
         },
-        styles: function() {
+        styles(): { [key: string]: string | Instance } {
             let { variant, color, size, disableShadow } = this;
-            // @ts-ignore
             let { $_hovered, $_focused, $_mousedowned } = this.$data;
-            // @ts-ignore
-            let { palette, tinycolor } : {palette: {[key: string]: any}, tinycolor:TinyColor} = this.$theme;
+            let { palette, tinycolor }= this.$theme;
             
             let mode = "dark";
-            let colorBase = (color in palette) ? palette[color] : color in palette[mode] ? palette[mode][color] : palette.defalut;
+            let colorBase = this.$theme.getBaseColor(color, mode);
 
             // background
-            let bgColor: Instance | string = tinycolor(colorBase);
+            let bgColor: Instance = tinycolor(colorBase);
             let isOutlinedOrText = ["outlined", "text"].includes(variant);
             if ($_hovered || $_focused || $_mousedowned) {
                 bgColor.darken();
-                $_mousedowned && bgColor.darken(20);
-                isOutlinedOrText && bgColor.setAlpha(0.2);
+                if ($_mousedowned){
+                    bgColor.darken(20);
+                    isOutlinedOrText && bgColor.setAlpha(0.2);
+                } else {
+                    isOutlinedOrText && bgColor.setAlpha(0.1);
+                }
             } else {
                 if (isOutlinedOrText) bgColor.setAlpha(0);
             }
 
             // foreground
-            let fgColor: Instance | string = isOutlinedOrText ? color === "default" ? palette[mode].primary : colorBase : "white";
+            let fgColor: Instance | string = isOutlinedOrText ? color === "default" ? this.$theme.getBaseColor("primary", mode) : colorBase : "white";
 
             return {
                 backgroundColor: bgColor,

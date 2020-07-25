@@ -49,19 +49,11 @@ li {
 
 #app > header {
   grid-area: header;
-  background-color: var(--primary-dark-color);
-  color: var(--primary-dark-text-contrast);
   z-index: var(--navbar-z-index);
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 0px 20px;
 }
 
 #app > aside {
   grid-area: drawer;
-  background-color: var(--primary-color);
-  color: var(--primary-text-contrast);
   z-index: var(--drawer-z-index);
 }
 

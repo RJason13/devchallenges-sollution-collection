@@ -4,6 +4,7 @@
   "author": "Richard Jason <s.chardjason@gmail.com>",
   "private": true,
   "scripts": {
+    "lint": "eslint --ext .ts,.js,.vue .",
     "dev": "nuxt",
     "build": "nuxt-ts build",
     "start": "nuxt-ts start",
@@ -25,8 +26,9 @@
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^1.0.3",
-    "@vue/test-utils": "^1.0.3",
+    "@nuxtjs/eslint-config-typescript": "^2.0.0",
     "@types/tinycolor2": "^1.4.2",
+    "@vue/test-utils": "^1.0.3",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^26.0.1",
     "cross-env": "^7.0.2",

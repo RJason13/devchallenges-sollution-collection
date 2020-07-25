@@ -1,12 +1,11 @@
 import { Plugin } from '@nuxt/types';
 import { Constructor as TinyColor } from "tinycolor2";
-import { Theme } from './theme.d';
+import { Theme, ThemeMode, Palette } from "./theme.d";
 
 const tinycolor: TinyColor = require("tinycolor2");
-
+  
 const myPlugin: Plugin = (context, inject) => {
-    
-    const theme: Theme = {
+    inject('theme', <Theme>{
         palette: {
             light: {
                 primary: tinycolor("slategrey").toHexString(),
@@ -22,9 +21,16 @@ const myPlugin: Plugin = (context, inject) => {
             warning: tinycolor("#ff9800").toHexString(),
             danger: tinycolor("#f44336").toHexString()
         },
-        tinycolor: tinycolor
-    }
-    inject("theme", theme);
+        tinycolor: tinycolor,
+        getBaseColor: function(color: string, mode: string) {
+            return (color in this.palette) ? 
+                <string>this.palette[<keyof Palette>color] : 
+                color in <object>this.palette[<keyof Palette>mode] ? 
+                    (this.palette[mode as keyof Palette] as ThemeMode)[color as keyof ThemeMode] : 
+                    this.palette.default
+        },
+        
+    })
 }
 
-export default myPlugin
+export default myPlugin;

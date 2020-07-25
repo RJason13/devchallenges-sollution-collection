@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <header>
-      <navbar />
+      <navbar color="primary" shade="dark" />
     </header>
     <aside>
-      <drawer />
+      <drawer color="primary" shade="light" />
     </aside>
     <main>
       <Nuxt />
@@ -15,6 +15,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import '../plugins/theme';
 import Navbar from "../components/Navbar.vue";
 import Drawer from "../components/Drawer.vue";
 export default Vue.extend({
