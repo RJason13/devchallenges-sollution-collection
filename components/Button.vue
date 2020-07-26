@@ -7,9 +7,9 @@
             @focus="$data.$_focused = true"
             @blur="$data.$_focused = false"
             :style="styles">
-      <i v-if="typeof endIcon === 'string'"></i>
-        {{ text }}
-      <i v-if="typeof endIcon === 'string'"></i>
+      <i v-if="typeof startIcon === 'string'" class="material-icons" style="margin-right: 5px;">{{ startIcon }}</i>
+        <span>{{ text }}</span>
+      <i v-if="typeof endIcon === 'string'" class="material-icons" style="margin-left: 5px;">{{ endIcon }}</i>
     </button>
 </template>
 
@@ -130,6 +130,10 @@ button {
     font-size: 14px;
     font-style: normal;
     background-color: #E0E0E0;
+}
+
+button > * {
+    vertical-align: middle;
 }
 
 button.sm {

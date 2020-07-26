@@ -36,6 +36,10 @@ export default Vue.extend({
                     { desc: '<Button variant="text" disabled />', props: { text: "Text", variant: "text", disabled: true } },
                 ],
                 [
+                    { desc: '<Button startIcon="shopping_chart" />', props: { text: "Default", startIcon: "shopping_cart" } },
+                    { desc: '<Button endIcon="shopping_chart" />', props: { text: "Default", endIcon: "shopping_cart" } }
+                ],
+                [
                     { desc: '<Button size="sm" />', props: { text: "Default", size: "sm" } },
                     { desc: '<Button size="md" />', props: { text: "Default", size: "md" } },
                     { desc: '<Button size="lg" />', props: { text: "Default", size: "lg" } }
