@@ -130,6 +130,8 @@ button {
     font-size: 14px;
     font-style: normal;
     background-color: #E0E0E0;
+    cursor: pointer;
+    user-select: none;
 }
 
 button > * {

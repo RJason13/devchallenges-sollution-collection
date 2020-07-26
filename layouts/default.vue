@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" v-cloak>
     <header>
       <navbar color="primary" shade="dark" />
     </header>
@@ -15,9 +15,9 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import '../plugins/theme';
 import Navbar from "../components/Navbar.vue";
 import Drawer from "../components/Drawer.vue";
+
 export default Vue.extend({
   components: {
     Navbar,

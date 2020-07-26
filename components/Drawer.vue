@@ -15,6 +15,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import { Instance, Constructor as TinyColor } from "tinycolor2";
+
 const Drawer = Vue.extend({
     props: {
       shade: {

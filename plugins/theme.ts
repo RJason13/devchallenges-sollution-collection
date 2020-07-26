@@ -1,9 +1,27 @@
 import { Plugin } from '@nuxt/types';
-import { Constructor as TinyColor } from "tinycolor2";
-import { Theme, ThemeMode, Palette } from "./theme.d";
+import tinycolor, { Constructor as TinyColor } from "tinycolor2";
 
-const tinycolor: TinyColor = require("tinycolor2");
-  
+export interface ThemeMode {
+    primary: string,
+    secondary: string
+}
+
+export interface Palette {
+    light: ThemeMode,
+    dark: ThemeMode,
+    default: string
+    info: string,
+    success: string,
+    warning: string,
+    danger: string
+}
+
+export interface Theme {
+    palette: Palette,
+    tinycolor: TinyColor,
+    getBaseColor: (color: string, mode: string)=>string
+}
+
 const myPlugin: Plugin = (context, inject) => {
     inject('theme', <Theme>{
         palette: {
@@ -24,10 +42,10 @@ const myPlugin: Plugin = (context, inject) => {
         tinycolor: tinycolor,
         getBaseColor: function(color: string, mode: string) {
             return (color in this.palette) ? 
-                <string>this.palette[<keyof Palette>color] : 
-                color in <object>this.palette[<keyof Palette>mode] ? 
-                    (this.palette[mode as keyof Palette] as ThemeMode)[color as keyof ThemeMode] : 
-                    this.palette.default
+            <string>this.palette[<keyof Palette>color] : 
+            color in <object>this.palette[<keyof Palette>mode] ? 
+            (this.palette[mode as keyof Palette] as ThemeMode)[color as keyof ThemeMode] : 
+            this.palette.default
         },
         
     })
